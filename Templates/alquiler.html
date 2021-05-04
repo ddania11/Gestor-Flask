@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title%}
+    Alquileres
+    {{super()}}
+{%endblock%}
+
+{% block content %}
+<h1>Apartamentos en Alquiler</h1>
+    
+{% for cliente in clientes %}
+<article class ="article-item"> 
+ 
+    <div class = "data">
+
+        
+        <span class = "date"> 
+            <b> {{cliente.1}}
+                {{cliente.2}} 
+            </b>
+        </span>
+    
+        <p>
+            Cliente de {{cliente.5}} | Código  {{cliente.3}} | Teléfono {{cliente.4}} | Operacion {{cliente.6}}
+        </p>
+
+        <p>
+            <a href="{{url_for('editar', cliente_id = cliente.0)}}" class="btn btn-warning"> Editar </a>
+        </p>
+
+        <p>
+            <a href="{{url_for('borrar', cliente_id= cliente.0)}}" class="btn"> Eliminar </a>
+        </p>
+
+    </div>
+    <div class = "clearfix"></div>
+</article>     
+{% endfor %}
+{%endblock%}

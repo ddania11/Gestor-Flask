@@ -1,0 +1,67 @@
+    {% extends 'layout.html' %}
+
+    {% block title%}
+        Crear Cliente
+        {{super()}}
+    {%endblock%}
+
+    {% block content %}
+    <h1>Nuevo Cliente</h1>
+
+    <form action="" method= "POST">
+        <label for "nombre"> 
+            <span> Nombre </span>
+            <input type="text" name="nombre" placeholder = "Ingresa el nombre" required {% if cliente %} value = "{{cliente.1}}" {%endif%}></input>
+        </label>
+
+        <label for "apellido">
+            <span> Apellido </span>
+            <input type="text" name="apellido" placeholder = "Ingresa el apellido" required {% if cliente %} value = "{{cliente.2}}" {%endif%}></input>
+        </label>   
+
+        <label for "codigo">  
+            <span> Código </span>
+            <input type="text" name="codigo" placeholder = "#MLS" required {% if cliente %}  value = "{{cliente.3}}" {%endif%}> </input>
+        </label>
+        
+        <label for "telefono">
+            <span> Numero de Teléfono </span>
+            <input type="text" name="telefono" placeholder = "Numero de Telefono. Ej: 0412-5558321" required {% if cliente %} value = "{{cliente.4}}" {%endif%}> </input>
+        </label>
+
+        <label for "inmueble"> 
+            <span> Inmueble </span>
+            </br>
+            <select id="inmueble" name="inmueble" {% if cliente %} value = "{{cliente.5}}" {%endif%}> 
+                <option value="apartamento">Apartamento</option>
+                <option value="casa">Casa</option>
+                <option value="galpon">Galpon</option>
+                <option value="local">Local</option>
+                <option value="oficina">Oficina</option>
+                <option value="terreno">Terreno</option>
+            </select>           
+        </label>
+       
+        <label for "operacion"> 
+            <span> Operación </span>
+            </br>
+            <select id="operacion" name="operacion" {% if cliente %} value = "{{cliente.6}}" {%endif%}> 
+                <option value="alquiler">Alquiler</option>
+                <option value="compra">Compra</option>
+                <option value="venta">Venta</option>
+            </select>           
+        </label>
+
+        <label for "precio"> 
+            <span> Precio </span>
+            <input type="number" name="precio" placeholder="Introduce el precio" {% if cliente %} value = "{{cliente.7}}" {%endif%}>
+        </label>
+        
+        <label for "ciudad"> 
+            <span> Ciudad </span> 
+            <input type="text" name="ciudad"  placeholder="Introduce la ciudad" {% if cliente %} value = "{{cliente.8}}" {%endif%}> </input>
+        </label>
+        
+        <input type="submit" value="Guardar"/>
+    </form>
+    {%endblock%}

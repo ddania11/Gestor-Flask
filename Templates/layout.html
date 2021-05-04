@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%} |Gestor de Clientes{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"/>
+</head>
+<body>
+    <header>
+        <div id="logotipo">
+            <h1>Gestor de Clientes</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="{{url_for('crear_cliente')}}">Crear Cliente</a>
+            </li>
+            <li>
+                <a href="{{url_for('apartamento')}}">Clientes Apartamentos</a>
+            </li>
+            <li>
+                <a href="{{url_for('casa')}}">Clientes de Casas</a>
+            </li>
+            <li>
+                <a href="{{url_for('galpon')}}">Clientes de Galpones</a>
+            </li>
+            <li>
+                <a href="{{url_for('local')}}">Clientes de Locales</a>
+            </li>
+            <li>
+                <a href="{{url_for('oficina')}}">Clientes de Oficinas</a>
+            </li>
+            <li>
+                <a href="{{url_for('terreno')}}">Clientes de Terrenos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+        {{ids}}
+            {% block content %}
+                <!-- Codigo que viene de templates --> 
+                <strong>Contenido del bloque original </strong>
+            {% endblock %}
+        </div>
+
+    </div>
+
+    <footer>
+        Creado por Daniel Dania &copy;
+    </footer>
+
+</body>
+</html>

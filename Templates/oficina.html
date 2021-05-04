@@ -1,0 +1,52 @@
+    {% extends 'layout.html' %}
+
+    {% block title%}
+        Oficinas
+        {{super()}}
+    {%endblock%}
+
+    {% block content %}
+    <h1>Clientes de Oficinas</h1>
+    {% for cliente in clientes %}
+        <div>
+            <ul>
+                Ordenar por: 
+                <li>
+                    <a href="{{url_for('alquiler', inmueble = cliente.5)}}">Alquiler</a>
+                </li>
+                <li>
+                    <a href="{{url_for('compra', inmueble = cliente.5)}}">Compra</a>
+                </li>
+                <li>
+                    <a href="{{url_for('venta', inmueble = cliente.5)}}">Venta</a>
+                </li>
+            </ul>
+        </div>
+        <article class ="article-item"> 
+        
+            <div class = "data">
+        
+                
+                <span class = "date"> 
+                    <b> {{cliente.1}}
+                        {{cliente.2}} 
+                    </b>
+                </span>
+            
+                <p>
+                    Cliente de {{cliente.5}} | Código  {{cliente.3}} | Teléfono {{cliente.4}} | Operacion {{cliente.6}}
+                </p>
+
+                <p>
+                    <a href="{{url_for('editar', cliente_id = cliente.0)}}" class="btn btn-warning"> Editar </a>
+                </p>
+
+                <p>
+                    <a href="{{url_for('borrar', cliente_id= cliente.0)}}" class="btn"> Eliminar </a>
+                </p>
+        
+            </div>
+            <div class = "clearfix"></div>
+        </article>     
+    {% endfor %}
+    {%endblock%}

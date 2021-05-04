@@ -1,0 +1,38 @@
+    {% extends 'layout.html' %}
+
+    {% block title%}
+        Inicio
+        {{super()}}
+    {%endblock%}
+
+    {% block content %}
+        <h1>Pagina de Inicio</h1>
+
+    {% for cliente in clientes %}
+        <article class ="article-item"> 
+
+            <div class = "data">
+
+                <h2> 
+                    <a href= "">
+                        {{clientes.1}}
+                    </a>
+                </h2>
+                
+                <span class = "date"> 
+                    {{clientes.2}}
+                    |
+                    {{clientes.3}}
+                </span>
+
+                <p>
+                    {{clientes.4}}
+                </p>
+
+
+            </div>
+            <div class = "clearfix"></div>
+        </article>     
+    {% endfor %}
+
+    {%endblock%}
